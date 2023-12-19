@@ -1,7 +1,7 @@
 # Binary To Pixels
 
 #### Try it for yourself at: https://milkiswf.github.io/B2P/
-![logo](https://i.imgur.com/ZeDJyVf.png)
+![logo](https://i.imgur.com/anfQgs4.png)
 
 ## How Does It Work?
 this tool is actually very simple!
