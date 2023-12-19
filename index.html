@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המרת בינארי לפיקסלים</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>המרת בינארי לפיקסלים</h1>
+    <label for="binaryInput">הזן מספרים בינארים ולאחר מכן לחץ על המר על מנת להפוך אותם לפיקסלים</label>
+    <textarea id="binaryInput" placeholder="למשל:
+110011
+101001"></textarea>
+    <button id="convertButton">המר!</button>
+    <canvas id="pixelCanvas"></canvas>
+    <div class="colorPicker">
+        <label for="color0">הצבע לספרה 0</label>
+        <input type="color" id="color0" name="color0" value="#000000">
+    </div>
+    <div class="colorPicker">
+        <label for="color1">הצבע לספרה 1</label>
+        <input type="color" id="color1" name="color1" value="#FFFFFF">
+    </div>
+    <button id="clearButton">איפוס</button>
+    <div class="credits">
+        <p><a href="https://milkiswf.github.io/spacebox/" target="_blank" rel="noopener noreferrer">עילי עזרא</a></p>
+        <p id="year"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
