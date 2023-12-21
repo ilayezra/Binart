@@ -1,13 +1,154 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Noto Sans Hebrew', sans-serif;
     background-color: #f0f0f0;
     margin: 20px;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
     color: #333;
     margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+.button,
+#helpButton,
+#closeButton,
+#toggleTheme:hover {
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.button {
+    border: none;
+}
+
+#helpButton {
+    font-size: 30px;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+}
+
+#closeButton {
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+#helpButton:hover,
+#closeButton:hover,
+#toggleTheme:hover {
+    color: #ffdb58;
+}
+
+#popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#popupContent {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    transition: opacity 0.5s ease;
+    color: #f0f0f0;
+    max-height: 80%;
+    overflow-y: auto;
+    text-align: right;
+}
+
+#popupContent p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+#popupContent h2 {
+    color: #f0f0f0;
+    text-align: right;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+#popupContent img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+#popupContent p,
+#popupContent h2,
+#popupContent ol {
+    color: #333;
+}
+
+body.dark-mode #popupContent p,
+body.dark-mode #popupContent h2,
+body.dark-mode #popupContent ol {
+    color: #f0f0f0;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s ease;
+    position: fixed;
+}
+
+body.dark-mode #popupContent {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+#popup:not(.hidden) {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.5s ease;
+}
+
+#toggleTheme {
+    background-color: transparent;
+    color: #f0f0f0;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    position: absolute;
+    top: 1%;
+    right: 20px;
+}
+
+#toggleTheme:hover {
+    color: #ffdb58;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+body.dark-mode h1 {
+    color: #f0f0f0;
+}
+
+body.dark-mode #toggleTheme {
+    background-color: #333;
+    color: white;
 }
 
 label {
@@ -46,6 +187,31 @@ button:hover {
     background-color: #45a049;
 }
 
+#toggleGrid {
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#toggleGrid:hover {
+    background-color: #ff4500;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+body.dark-mode #toggleTheme {
+    background-color: #333;
+    color: white;
+}
+
 .colorPicker input[type="color"] {
     border: none;
     width: 30px;
@@ -73,6 +239,23 @@ canvas {
     border-radius: 5px;
 }
 
+#controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 770px) {
+    #toggleTheme,
+    #helpButton,
+    #controls {
+        position: static;
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .colorPicker {
     display: inline-block;
     margin: 10px;
@@ -83,9 +266,33 @@ canvas {
     font-size: 14px;
     color: #555;
     text-align: center;
+    transition: color 0.3s;
+}
+
+.credits a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.credits a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode .credits {
+    color: #f0f0f0;
 }
 
 .credits p {
     margin: 0 5px;
     display: inline-block;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:active,
+a:focus {
+    text-decoration: underline;
 }
