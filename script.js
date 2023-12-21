@@ -1,5 +1,8 @@
+document.getElementById("popup").classList.add("hidden");
+
 var color0 = "#000";
 var color1 = "#FFF";
+var showGrid = true;
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -34,18 +37,21 @@ function convertToPixels() {
             } else if (binaryValue === "1") {
                 pixelColor = color1;
             } else {
-                pixelColor = getRandomColor(); // assign a random color for non-binary characters
+                pixelColor = getRandomColor();
             }
             ctx.fillStyle = pixelColor;
             ctx.fillRect(j * pixelSize * 4, i * pixelSize * 4, pixelSize * 4, pixelSize * 4);
-            ctx.strokeStyle = "red";
-            ctx.lineWidth = 1;
-            ctx.strokeRect(j * pixelSize * 4, i * pixelSize * 4, pixelSize * 4, pixelSize * 4);
+            if (showGrid) {
+                ctx.strokeStyle = "red";
+                ctx.lineWidth = 1;
+                ctx.strokeRect(j * pixelSize * 4, i * pixelSize * 4, pixelSize * 4, pixelSize * 4);
+            }
         }
     }
 }
 
 document.getElementById("binaryInput").addEventListener("keydown", function(event) {
+    var isNotMobile = window.innerWidth > 600;
     if (event.key === "Enter" && event.shiftKey) {
         var cursorPos = this.selectionStart;
         var textBefore = this.value.substring(0, cursorPos);
@@ -54,13 +60,39 @@ document.getElementById("binaryInput").addEventListener("keydown", function(even
         this.selectionStart = cursorPos + 1;
         this.selectionEnd = cursorPos + 1;
         event.preventDefault();
-    } else if (event.key === "Enter") {
+    } else if (event.key === "Enter" && isNotMobile) {
         convertToPixels();
         event.preventDefault();
     }
 });
 
 document.getElementById("convertButton").addEventListener("click", convertToPixels);
+
+document.getElementById("toggleGrid").addEventListener("click", function() {
+    showGrid = !showGrid;
+    convertToPixels();
+});
+
+document.getElementById("toggleTheme").addEventListener("click", function() {
+    this.textContent = document.body.classList.contains("dark-mode") ? "🌙" : "☀️";
+    document.body.classList.toggle("dark-mode");
+});
+
+document.getElementById("helpButton").addEventListener("click", function() {
+    document.getElementById("popup").classList.remove("hidden");
+});
+
+document.getElementById("closeButton").addEventListener("click", hidePopup);
+
+document.getElementById("popup").addEventListener("click", function(event) {
+    if (event.target === this) {
+        hidePopup();
+    }
+});
+
+function hidePopup() {
+    document.getElementById("popup").classList.add("hidden");
+}
 
 document.getElementById("clearButton").addEventListener("click", function() {
     document.getElementById("binaryInput").value = '';
