@@ -28,17 +28,18 @@ h1 {
 
 #helpButton {
     font-size: 30px;
-    position: fixed;
+    position: absolute;
     top: 10px;
     left: 20px;
 }
 
 #closeButton {
     font-size: 20px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: fixed;
     z-index: 9999;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 50%;
 }
 
 #helpButton:hover,
@@ -123,7 +124,6 @@ body.dark-mode #popupContent {
 
 #toggleTheme {
     background-color: transparent;
-    color: #f0f0f0;
     font-size: 30px;
     border: none;
     cursor: pointer;
@@ -144,11 +144,6 @@ body.dark-mode {
 
 body.dark-mode h1 {
     color: #f0f0f0;
-}
-
-body.dark-mode #toggleTheme {
-    background-color: #333;
-    color: white;
 }
 
 label {
@@ -208,6 +203,11 @@ body.dark-mode {
 }
 
 body.dark-mode #toggleTheme {
+    background-color: #333;
+    color: white;
+}
+
+body.dark-mode #closeButton {
     background-color: #333;
     color: white;
 }
