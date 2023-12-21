@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet">
     <title>המרת בינארי לפיקסלים</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -24,9 +26,40 @@
         <label for="color1">הצבע לספרה 1</label>
         <input type="color" id="color1" name="color1" value="#FFFFFF">
     </div>
+    <button id="toggleGrid">כבה/הדלק את הרשת</button>
     <button id="clearButton">איפוס</button>
+    <button id="toggleTheme">🌙</button>
+    <button id="helpButton">❓</button>
+    <div id="popup" class="hidden">
+        <div id="popupContent">
+            <button id="closeButton">❌</button>
+            <img src="example.gif" alt="GIF description">
+            <div class="popup-section">
+                <h2>איך זה עובד?</h2>
+                <p>הכלי הזה הוא למעשה פשוט מאוד! <br> כאשר רושמים את אחת מהספרות 1 או 0, הכלי מזהה את הספרה ומניח אותה על הטבלה לפי צבעה. <br> בנוסף, אם תכתבו אות או מספר שונה, יופיע פיקסל בצבע אקראי. <br></p>
+            </div>
+            <div class="popup-section">
+                <h2>כיצד להשתמש:</h2>
+                <ol>
+                    <li>תעתיקו קוד בינארי קיים או הקלידו כרצונכם כל דבר בתיבת הטקסט.</li>
+                    <li>לחצו על "המר" כדי להמיר את הספרות לפיקסלים.</li>
+                    <li>וזהו! הספרות הבינאריות שלכם מומרות כעת לפיקסלים. תהנו עם הכלי הזה!</li>
+                    <li>אם סיימתם, תוכלו ללחוץ על הכפתור "איפוס" והכל יתחיל מההתחלה.</li>
+                </ol>
+            </div>
+            <div class="popup-section">
+                <h2>פיצ'רים מיוחדים:</h2>
+                <ol>
+                    <li>אם הצבעים של הספרות הבינאריות לא תואמות עבורכם אתם יכולים לשנות אותם בעזרת כפתורי השינוי שלמטה.</li>
+                    <li>אם צבע לבן מכאיב לכם בעיניים אתם תמיד יכולים ללחוץ על הירח והוא ידאג לשנות את המראה באתר לכהה.</li>
+                    <li>הרשת נועדה לעזור במדידת מרחק בין פיקסלים, אבל אתם תמיד יכולים לכבות אותה על ידי לחיצה על הכפתור "כבה/הדלק את הרשת"</li>
+                    <li>במקום להשתמש בעכבר אתם יכולים ללחוץ על Enter כדי להמיר את הספרות. וגם Shift + Enter כדי לרדת שורה. (לא זמין במובייל)</li>
+                </ol>
+            </div>
+        </div>
+    </div>
     <div class="credits">
-        <p><a href="https://milkiswf.github.io/spacebox/" target="_blank" rel="noopener noreferrer">עילי עזרא</a></p>
+        <p><a href="https://github.com/milkiswf/B2P" target="_blank" rel="noopener noreferrer">עמוד הפרויקט ב-Github</a></p>
         <p id="year"></p>
     </div>
     <script src="script.js"></script>
