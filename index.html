@@ -2,67 +2,201 @@
 <html lang="he" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet">
-    <title>המרת בינארי לפיקסלים</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+  <title data-translate="title">המרת בינארי לפיקסלים</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/platform/1.3.6/platform.min.js"
+    integrity="sha512-eYPrm8TgYWg3aa6tvSRZjN4v0Z9Qx69q3RhfSj+Mf89QqwOMqmwSlsVqfp4N8NVAcZe/YeUhh9x/nM2CAOp6cA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta name="description"
+    content="Convert binary digits into beautiful pixel art paintings. Try for yourself at binart.lol">
+
+  <meta property="og:url" content="http://binart.lol/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Binart">
+  <meta property="og:description"
+    content="Convert binary digits into beautiful pixel art paintings. Try for yourself at binart.lol">
+
+  <meta property="og:image" content="https://i.ibb.co/j4cjHK3/logo-PA-S8.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="milkitestsite.000webhostapp.com">
+  <meta property="twitter:url" content="http://binart.lol/">
+  <meta name="twitter:title" content="Binart">
+  <meta name="twitter:description"
+    content="Convert binary digits into beautiful pixel art paintings. Try for yourself at binart.lol">
+
+  <meta name="twitter:image" content="https://i.ibb.co/j4cjHK3/logo-PA-S8.png">
 </head>
 
 <body>
-    <h1>המרת בינארי לפיקסלים</h1>
-    <label for="binaryInput">הזן מספרים בינארים ולאחר מכן לחץ על המר על מנת להפוך אותם לפיקסלים</label>
-    <textarea id="binaryInput" placeholder="למשל:
-110011
-101001"></textarea>
-    <button id="convertButton">המר!</button>
-    <canvas id="pixelCanvas"></canvas>
-    <div class="colorPicker">
-        <label for="color0">הצבע לספרה 0</label>
-        <input type="color" id="color0" name="color0" value="#000000">
-    </div>
-    <div class="colorPicker">
-        <label for="color1">הצבע לספרה 1</label>
-        <input type="color" id="color1" name="color1" value="#FFFFFF">
-    </div>
-    <button id="toggleGrid">כבה/הדלק את הרשת</button>
-    <button id="clearButton">איפוס</button>
-    <button id="toggleTheme">🌙</button>
-    <button id="helpButton">❓</button>
-    <div id="popup" class="hidden">
-        <div id="popupContent">
-            <button id="closeButton">❌</button>
-            <img src="example.gif" alt="GIF description">
-            <div class="popup-section">
-                <h2>איך זה עובד?</h2>
-                <p>הכלי הזה הוא למעשה פשוט מאוד! <br> כאשר רושמים את אחת מהספרות 1 או 0, הכלי מזהה את הספרה ומניח אותה על הטבלה לפי צבעה. <br> בנוסף, אם תכתבו אות או מספר שונה, יופיע פיקסל בצבע אקראי. <br></p>
+  <canvas id="canvaslogo" alt="Binary">Binary</canvas>
+  <img id="logoImg" src="assets/altlogo.png" alt="Binary" style="display: none;" draggable="false"
+    oncontextmenu="return false">
+  <label for="binaryInput" data-translate="inputLabel">Enter binary numbers and click Convert to turn them into
+    pixels</label>
+  <textarea id="binaryInput" placeholder="" data-translate="placeholderText"></textarea>
+  <button id="convertButton" data-translate="convertLabel">Convert</button>
+  <div class="canvas-container-wrapper">
+    <div class="canvas-container">
+      <div class="coolbuttons">
+        <button id="downloadButton" title="Download the pixel art">⬇️</button>
+        <button id="toggleGrid" title="Show/Hide grid">🪟</button>
+        <button id="pixelsToBinaryButton" title="Convert image to binary">🖼️</button>
+        <div id="pixelsToBinaryPopup" class="popup image-popup hidden">
+          <div id="pixelsToBinaryPopupContent">
+            <button id="closePixelsToBinaryPopup">❌</button>
+            <h2 data-translate="itbtitle">Convert Image to Binary</h2>
+            <div id="imageUploadContainer">
+              <label for="imageUpload" class="file-upload-label" data-translate="imageselect">Select an image</label>
+              <input type="file" id="imageUpload" accept="image/png" style="display: none;">
             </div>
-            <div class="popup-section">
-                <h2>כיצד להשתמש:</h2>
-                <ol>
-                    <li>תעתיקו קוד בינארי קיים או הקלידו כרצונכם כל דבר בתיבת הטקסט.</li>
-                    <li>לחצו על "המר" כדי להמיר את הספרות לפיקסלים.</li>
-                    <li>וזהו! הספרות הבינאריות שלכם מומרות כעת לפיקסלים. תהנו עם הכלי הזה!</li>
-                    <li>אם סיימתם, תוכלו ללחוץ על הכפתור "איפוס" והכל יתחיל מההתחלה.</li>
-                </ol>
+            <button id="convertImageToBinary" disabled data-translate="imageconvert">Convert</button>
+            <div id="resultContainer">
+              <div id="binaryOutput" style="text-align: left; word-break: break-all;"></div>
+              <div id="previewContainer">
+                <canvas id="previewCanvas"></canvas>
+              </div>
             </div>
-            <div class="popup-section">
-                <h2>פיצ'רים מיוחדים:</h2>
-                <ol>
-                    <li>אם הצבעים של הספרות הבינאריות לא תואמות עבורכם אתם יכולים לשנות אותם בעזרת כפתורי השינוי שלמטה.</li>
-                    <li>אם צבע לבן מכאיב לכם בעיניים אתם תמיד יכולים ללחוץ על הירח והוא ידאג לשנות את המראה באתר לכהה.</li>
-                    <li>הרשת נועדה לעזור במדידת מרחק בין פיקסלים, אבל אתם תמיד יכולים לכבות אותה על ידי לחיצה על הכפתור "כבה/הדלק את הרשת"</li>
-                    <li>במקום להשתמש בעכבר אתם יכולים ללחוץ על Enter כדי להמיר את הספרות. וגם Shift + Enter כדי לרדת שורה. (לא זמין במובייל)</li>
-                </ol>
+            <div class="actionbuttons">
+              <button id="copyBinaryToClipboard" disabled data-translate="imagecopy">Copy To Clipboard📋</button>
+              <button id="sendBinaryToTextbox" disabled data-translate="imagesend">Send To Textbox⬇️</button>
             </div>
+            <div id="warningContainer">
+              <span class="warning-icon">⚠️</span>
+              <p data-translate="imageruletitle">Important things to note before using image to binary convertion:</p>
+              <ul>
+                <li data-translate="imagerule1">Only .png image file format is allowed</li>
+                <li data-translate="imagerule2">Each pixel in your image must be 1x1 and not scaled up</li>
+                <li data-translate="imagerule3">The image must consist only 2 colors, otherwise it will pick 2 random
+                  colors</li>
+                <li data-translate="imagerule4">An image cannot consist more than 50,000 pixels.</li>
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+      <canvas id="pixelCanvas" width="250" height="150"></canvas>
     </div>
-    <div class="credits">
-        <p><a href="https://github.com/milkiswf/B2P" target="_blank" rel="noopener noreferrer">עמוד הפרויקט ב-Github</a></p>
-        <p id="year"></p>
+  </div>
+  <div class="colorPicker">
+    <label for="color0" data-translate="color0Label">Number 0 color</label>
+    <input type="color" id="color0" name="color0" value="#000000">
+  </div>
+  <div class="colorPicker">
+    <label for="color1" data-translate="color1Label">Number 1 color</label>
+    <input type="color" id="color1" name="color1" value="#FFFFFF">
+  </div>
+  <div>
+    <button id="toggleTheme" title="Toggle light/dark mode">🌙</button>
+    <button id="helpButton" title="Show help">❓</button>
+    <button id="languageToggle" title="switch language">
+      <span class="flag-icon">
+        <img src="assets/flag-il.svg" alt="change language">
+      </span>
+    </button>
+  </div>
+  <div id="popup" class="hidden">
+    <div id="popupContent">
+      <button id="closeButton">❌</button>
+      <img src="assets/example.webp" alt="GIF description" width="560">
+      <div class="popup-section">
+        <h2 data-translate="howItWorks">How it Works?</h2>
+        <p data-translate="howItWorksDescription"></p>
+      </div>
+      <div class="popup-section">
+        <h2 data-translate="howToUse">How to Use:</h2>
+        <ol>
+          <li data-translate="howToUseStep1"></li>
+          <li data-translate="howToUseStep2"></li>
+          <li data-translate="howToUseStep3"></li>
+          <li data-translate="howToUseStep4"></li>
+        </ol>
+      </div>
+      <div class="popup-section">
+        <h2 data-translate="specialFeatures">Special Features:</h2>
+        <ul>
+          <li data-translate="specialFeaturesItem1"></li>
+          <li data-translate="specialFeaturesItem2"></li>
+          <li data-translate="specialFeaturesItem3"></li>
+          <li data-translate="specialFeaturesItem4"></li>
+          <li data-translate="specialFeaturesItem5"></li>
+          <li data-translate="specialFeaturesItem6"></li>
+        </ul>
+      </div>
     </div>
-    <script src="script.js"></script>
+  </div>
+  <div id="downloadPopup" class="popup hidden">
+    <div id="downloadPopupContent">
+      <button id="closeDownloadPopup">❌</button>
+      <h2 data-translate="downloadPopupTitle">Download Options</h2>
+      <div id="downloadButtons">
+        <div class="download-option">
+          <span data-translate="downloadScaledLabel">Download Scaled Image</span>
+          <button id="downloadScaledImage">
+            <div class="download-text" data-translate="downloadpaintingbutton">Download</div>
+          </button>
+          <div class="image-details">
+            <span id="scaledImageDimensions" class="image-dimensions"></span>
+            <span id="scaledImageSize" class="image-size"></span>
+          </div>
+        </div>
+        <div class="download-option">
+          <span data-translate="downloadUnscaledLabel">Download Unscaled Image</span>
+          <button id="downloadUnscaledImage">
+            <div class="download-text" data-translate="downloadpaintingbutton">Download</div>
+          </button>
+          <div class="image-details">
+            <span id="unscaledImageDimensions" class="image-dimensions"></span>
+            <span id="unscaledImageSize" class="image-size"></span>
+          </div>
+        </div>
+      </div>
+      <div id="noPixelsMessage" class="hidden" data-translate="noPixelsMessage">No pixels to download.</div>
+    </div>
+  </div>
+  <div id="secretPopup" class="popup hidden">
+    <div id="secretPopupContent">
+      <button id="closeSecretPopup">❌</button>
+      <h2 data-translate="secrettitle"></h2>
+      <img src="assets/logoPA_S8.png" id="pixelogo" draggable="false">
+      <code>
+      <p data-translate="secretversion"></p>
+      <div id="deviceinfo"><p data-translate="secretdevice" id="devicetext"></p><div class="description"><span id="description"></span></div></div>
+      <p data-translate="softwaresecret"></p>
+      </code>
+      <br><img
+        src="https://hitwebcounter.com/counter/counter.php?page=13178223&style=0025&nbdigits=9&type=ip&initCount=0"
+        title="Counter Widget" Alt="Visit counter For Websites" /></a>
+      <p><a href="https://app.spline.design/file/a0e734b7-b1cb-435d-9146-7b22382e3b85" target="_blank"
+          rel="noopener noreferrer" data-translate="secretlogo"></a> / <a href="assets/logoPA.aseprite" target="_blank"
+          rel="noopener noreferrer" data-translate="secretPAlogo"></a></p>
+      <p data-translate="secrethings"></p>
+      <div id="secretdesc">
+        <p data-translate="secrethanks"></p><a href="https://discord.com/users/532594707692519425" target="_blank"
+          rel="noopener noreferrer" data-translate="discord"></a>/<a href="https://github.com/ilayezra" target="_blank"
+          rel="noopener noreferrer" data-translate="github"></a>
+      </div>
+    </div>
+  </div>
+  <footer class="credits">
+    <p><a href="https://github.com/sponsors/ilayezra" target="_blank" rel="noopener noreferrer"
+        data-translate="donaterefer">donate</a></p>
+    <p>
+      <a href="https://github.com/ilayezra/B2P/releases/" target="_blank" rel="noopener noreferrer" id="downloadLink">
+        <span data-translate="softwarerefer"></span>
+        <img src="assets/windows_logo.png?v=1" id="windowslogo" alt="Windows Logo">
+      </a>
+    </p>
+    <p><a href="https://github.com/milkiswf/B2P" target="_blank" rel="noopener noreferrer"
+        data-translate="gitrefer">Project page on github</a></p>
+    <p id="year"></p>
+  </footer>
+  <script src="script.js"></script>
+  <script type="module" src="logo.js"></script>
 </body>
 
 </html>

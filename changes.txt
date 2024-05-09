@@ -1,0 +1,27 @@
+- fixed the blank column that appears when typing space in the text box
+- added a thing that the website remembers the state of the theme and the colors of the numbers
+- added the english language and the option to switch between languages
+- new logo
+- download button
+- revese button
+- grid color is now the inverted color of the pixels instead of just red (+ redesign)
+- a secret debug screen, it's not so easy to get it...
+- I removed the reset button, it's useless
+- fixed image convertsion popup transition
+- added transition to some text that dont have one, also fixed directions
+- when pressing outside of the popup will close it
+-image preview in convertor is no longer changable, good
+- canvas and logo responsivity fixed
+- added a limit for image size that can be uploaded to prevent site crashing or weird activities
+- added little tooltips for some buttons
+- added embed for sites and make it to appear on google
+- secret screen
+- changed hebrew convert font
+- added title artibuts for some buttons
+- help gif updated
+- make the program
+
+
+
+
+
