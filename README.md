@@ -12,7 +12,7 @@
 </p>
 
 ## What is this tool?
-Binart is a tool that has started as tool to detect validity in a series of binary numbers, the tool was released in the end of 2023 and since then it has been abandoned. BUT in the last few months Binart has been through a massive redesign and gained many changes and features.
+Binart is a tool that has started as tool to detect validity in a series of binary numbers, the tool was released in the end of 2023 and since then it has been abandoned. BUT in the last few months Binart has been through a massive redesign and gained many changes and features. Binert is a tool to convert each binary number that you type into a pixel and at the end you get a beautiful pixel art using only 2 numbers, Binart also has a lot of other features.
 ## How to use
 1. Copy an existing binary code or type anything you want in the text box
 2. Click "Convert" to convert the digits to pixels.
